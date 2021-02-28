@@ -37,6 +37,12 @@ export class NoticeService {
       .catch(this.handleError);
   }
 
+  deleteNotice(noticeId : number){
+    console.log("entered")
+    return this.http.delete(this.URL + "/notices/" + noticeId, {headers: this.headers})
+      .toPromise().then();
+  }
+
 
 
 

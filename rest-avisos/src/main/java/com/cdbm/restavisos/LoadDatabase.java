@@ -14,7 +14,7 @@ public class LoadDatabase {
     CommandLineRunner initDatabase(NoticeRepository repository){
         return args -> {
             log.info("Preloading " + repository.save(new Notice("Aviso 1", "Descrição 1", "", "")));
-            log.info("Preloading " + repository.save(new Notice("Aviso 1", "Descrição 1", "", "")));
+            log.info("Preloading " + repository.save(new Notice("Aviso 2", "Descrição 2", "", "")));
         };
     }
 }

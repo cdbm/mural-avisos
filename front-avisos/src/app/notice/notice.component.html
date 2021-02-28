@@ -9,9 +9,22 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <mat-checkbox mat-chec>Lido</mat-checkbox>
+      <mat-checkbox mat-chec [checked]="notice.seen" (click)="updateRead(notice)">Lido</mat-checkbox>
+      <button> <mat-icon (click)="deleteNotice(notice.id)">delete</mat-icon> </button>
     </mat-card-actions>
   </mat-card>
 </div>
 
-<button mat-button>Criar Aviso</button>
+<button mat-raised-button (click)="updateClick()">Criar Aviso</button>
+
+<div *ngIf="clicked">
+  <form>
+    <mat-label>Título: </mat-label>
+    <input #box (keyup)="updateTitle(box.value)">
+
+    <mat-label>Descrição: </mat-label>
+    <input #box2 (keyup.enter)="createNotice()"  (keyup)="updateSub(box2.value)">
+  </form>
+
+  <button mat-raised-button (click)="createNotice()">Criar Aviso</button>
+</div>
